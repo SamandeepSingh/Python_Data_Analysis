@@ -39,7 +39,7 @@ df = pd.read_csv(clean_data_path,encoding="latin-1")
 
 # Distribution of vehicles based on year of registration
 fig, ax = plt.subplots(figsize=(8,6))
-sns.distplot(df["yearOfRegistration"], color="#3D59AB",kde=True, ax=ax)
+sns.distplot(df["yearOfRegistration"], color="#DC143C",kde=True, ax=ax)
 ax.set_title('Vehicles based on Year of Registration', fontsize= 15)
 plt.ylabel("Density (KDE)", fontsize= 15)
 plt.xlabel("Registration Year", fontsize= 15)
