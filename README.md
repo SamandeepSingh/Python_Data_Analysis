@@ -23,7 +23,7 @@ __*The main folder contains 9 folders*__.
   + RawData folder which contains the **[raw dataset](RawData)**.  <br/>
  
 ***
-### Analysis 1 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;[Analysis1.py](First Analysis/First Analysis.py)&emsp;[Analysis1.ipynb](First Analysis/Analysis1.ipynb)&emsp;[Plots](First Analysis/Plots)
+### Analysis 1 
 + This analysis gives the distribution of prices of vehicles based on vehicles types.
 + Output before the cleaning the data is shown below in order to highlight the importance of cleaning this dataset.
 + **Histogram** and **KDE** before performing data cleaning.
