@@ -1,18 +1,6 @@
 
 # coding: utf-8
 
-# # Analysis 1
-
-# ## Some general analysis encountered during Data Cleaning
-
-# In[24]:
-
-#get_ipython().magic('matplotlib inline')
-
-
-# In[19]:
-
-# importing required libraries
 import os
 import subprocess
 import stat
@@ -28,17 +16,18 @@ sns.set(style="white")
 
 # absolute path till parent folder
 abs_path = os.getcwd()
-path_array = abs_path.split("/")
+path_array = abs_path.split("\\")
+
 path_array = path_array[:len(path_array)-1]
+
 homefolder_path = ""
 for i in path_array[1:]:
-    homefolder_path = homefolder_path + "/" + i   
-
+    homefolder_path = homefolder_path + '\\'  +i
 
 # In[22]:
 
 # path to clean data
-clean_data_path = homefolder_path + "/CleanData/CleanedDataSet/cleaned_autos.csv"
+clean_data_path = homefolder_path + "\CleanData\CleanedDataSet\cleaned_autos.csv"
 
 # reading csv into raw dataframe
 df = pd.read_csv(clean_data_path,encoding="latin-1")
@@ -60,7 +49,10 @@ plt.show()
 # In[33]:
 
 # saving the plot
-fig.savefig(abs_path + "/Plots/vehicle-distribution.png")
+filepath=os.path.join(abs_path ,"Plots","vehicle-distribution.png")
+if os.path.isfile(filepath):
+    os.remove(filepath)   # Opt.: os.system("rm "+strFile)
+    fig.savefig(filepath)
 
 
 # ## Variation of the price range by the vehicle type
@@ -78,8 +70,11 @@ plt.show()
 # In[45]:
 
 # saving the plot
-fig.savefig(abs_path + "/Plots/price-vehicleType-boxplot.png")
+filepath=abs_path + "\Plots\price-vehicleType-boxplot.png"
 
+if os.path.isfile(filepath):
+    os.remove(filepath)   # Opt.: os.system("rm "+strFile)
+    fig.savefig(filepath)
 
 # ## Total count of vehicles by type available on ebay for sale
 
@@ -87,8 +82,8 @@ fig.savefig(abs_path + "/Plots/price-vehicleType-boxplot.png")
 
 # Count plot to show the number of vehicles belonging to each vehicleType
 sns.set_style("white")
-g = sns.factorplot(x="vehicleType", data=df, kind="count",
-                   palette="BuPu", size=6, aspect=1.5)
+g = sns.catplot(x="vehicleType", data=df, kind="count",
+                   palette="BuPu",  aspect=1.5)
 # to get the counts on the top heads of the bar
 for p in g.ax.patches:
     g.ax.annotate((p.get_height()), (p.get_x()+0.1, p.get_height()+500))
@@ -97,8 +92,11 @@ for p in g.ax.patches:
 # In[54]:
 
 # saving the plot
-g.savefig(abs_path + "/Plots/count-vehicleType.png")
+filepath=abs_path + "\Plots\count-vehicleType.png"
 
+if os.path.isfile(filepath):
+    os.remove(filepath)   # Opt.: os.system("rm "+strFile)
+    fig.savefig(filepath)
 
 # In[ ]:
 
